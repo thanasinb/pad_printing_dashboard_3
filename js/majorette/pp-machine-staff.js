@@ -131,7 +131,7 @@ $(document).ready(function(){
         $('#role').val(role_val);
         $('#shift').val(shif);
 
-        $('#staff_modal').modal('hide');
+        $('#staff_modal').modal('show');
         // $('#modal_span_staff_id').text(id_staff);
         $.ajax({
          url: "ajax/pp-staff-load.php",

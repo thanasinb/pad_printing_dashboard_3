@@ -133,15 +133,15 @@ $(document).ready(function(){
 
         $('#staff_modal').modal('show');
         // $('#modal_span_staff_id').text(id_staff);
-        $.ajax({
-         url: "ajax/pp-staff-load.php",
-        type: "GET",
-        data: {
-         id_staff: id_staff
-         },
-        context: this,
-        cache: false,
-        success: function(dataResult){
+        // $.ajax({
+        //  url: "ajax/pp-staff-load.php",
+        // type: "GET",
+        // data: {
+        //  id_staff: id_staff
+        //  },
+        // context: this,
+        // cache: false,
+        // success: function(dataResult){
         // alert(dataResult);
          var dataResult = JSON.parse(dataResult);
         // $('#input_staff_id').text(dataResult.id_staff);
@@ -152,8 +152,8 @@ $(document).ready(function(){
         $('#input_site').val(dataResult.site);
         // $('#modal_role').text(dataResult.role);
         //$('#modal_shif').text(dataResult.id_shif);
-         }
-        });
+        //  }
+        // });
     });
 
     $('.staff_delete').click(function (){

@@ -148,8 +148,8 @@ $(document).ready(function(){
         // //$('#input_rfid').val(dataResult.id_rfid);
         // //$('#modal_prefix').text(dataResult.prefix);
 
-         $('#input_name'). $(name_first);
-         $('#input_last'). $(name_last);
+         $('#input_name') == $name_first;
+         $('#input_last') == $name_last;
         // $('#input_site').val(dataResult.site);
         // $('#modal_role').text(dataResult.role);
         //$('#modal_shif').text(dataResult.id_shif);

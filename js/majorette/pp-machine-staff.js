@@ -123,8 +123,8 @@ $(document).ready(function(){
         }
         //alert(prefix + prefix_val + role + role_val+ shif);
 
-        $('#input_staff_id').val(id_rfid);
-        $('#input_rfid').val(id_staff);
+        $('#input_staff_id').val(id_staff);
+        $('#input_rfid').val(name_first);
         $('#prefix_name').val(prefix_val);
         $('#input_name').val(name_first);
         $('#input_last').val(name_last);

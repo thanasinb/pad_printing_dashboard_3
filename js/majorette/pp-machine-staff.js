@@ -147,7 +147,7 @@ $(document).ready(function(){
         // $('#input_staff_id').text(dataResult.id_staff);
         //$('#input_rfid').val(dataResult.id_rfid);
         //$('#modal_prefix').text(dataResult.prefix);
-        $('#input_name').val('.name_first');
+        $('#input_name').val(name);
         $('#input_last').val(dataResult.name_last);
         $('#input_site').val(dataResult.site);
         // $('#modal_role').text(dataResult.role);

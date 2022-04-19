@@ -126,35 +126,35 @@ $(document).ready(function(){
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
         $('#prefix_name').val(prefix_val);
-        //$('#input_name').val(name_first);
-        //$('#input_last').val(name_last);
+        $('#input_name').val(name_first);
+        $('#input_last').val(name_last);
         $('#role').val(role_val);
         $('#shift').val(shif);
 
-        $('#staff_modal').modal('show');
-        // $('#modal_span_staff_id').text(id_staff);
-        // $.ajax({
-        //  url: "ajax/pp-staff-load.php",
-        // type: "GET",
-        // data: {
-        //  id_staff: id_staff
-        //  },
-        // context: this,
-        // cache: false,
-        // success: function(dataResult){
-        // // alert(dataResult);
-        //  var dataResult = JSON.parse(dataResult);
-        // // $('#input_staff_id').text(dataResult.id_staff);
-        // //$('#input_rfid').val(dataResult.id_rfid);
-        // //$('#modal_prefix').text(dataResult.prefix);
-        $('#input_name').val('name_first');
-        // $('#input_last').val(dataResult.name_last);
-        // $('#input_site').val(dataResult.site);
-        // $('#modal_role').text(dataResult.role);
-        //$('#modal_shif').text(dataResult.id_shif);
-        //  }
-        // });
-    });
+    //     $('#staff_modal').modal('show');
+    //     // $('#modal_span_staff_id').text(id_staff);
+    //     // $.ajax({
+    //     //  url: "ajax/pp-staff-load.php",
+    //     // type: "GET",
+    //     // data: {
+    //     //  id_staff: id_staff
+    //     //  },
+    //     // context: this,
+    //     // cache: false,
+    //     // success: function(dataResult){
+    //     // // alert(dataResult);
+    //     //  var dataResult = JSON.parse(dataResult);
+    //     // // $('#input_staff_id').text(dataResult.id_staff);
+    //     // //$('#input_rfid').val(dataResult.id_rfid);
+    //     // //$('#modal_prefix').text(dataResult.prefix);
+    //     // $('#input_name').val('name_first');
+    //     // $('#input_last').val(dataResult.name_last);
+    //     // $('#input_site').val(dataResult.site);
+    //     // $('#modal_role').text(dataResult.role);
+    //     //$('#modal_shif').text(dataResult.id_shif);
+    //     //  }
+    //     // });
+    // });
 
     $('.staff_delete').click(function (){
         var id_staff = $(this).parent().parent().find('.id_staff').html();

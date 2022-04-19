@@ -9,10 +9,10 @@ $(document).ready(function(){
         $('#shift').prop('disabled', true);
         $('#role').prop('disabled', true);
         $('#input_site').prop('disabled', true);
-        $('#button_save_rfid').hide();
+        $('#button_save_rfid').show();
         $('#button_rfid').show();
     });
-//
+
     $('#button_save_rfid').click(function () {
         // alert($('#input_rfid').val() + $('#modal_staff_id').text());
         var id_staff = $('#input_staff_id').val();

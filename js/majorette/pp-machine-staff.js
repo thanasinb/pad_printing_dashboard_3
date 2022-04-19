@@ -30,16 +30,16 @@ $(document).ready(function(){
             data: {
                 id_staff: id_staff,
                 id_rfid: id_rfid,
-                name_first:name,
-                name_last:last,
-                prefix:prefix,
-                id_role:roles,
-                id_shif:shift,
-                site:site,
+                name_first: name,
+                name_last: last,
+                prefix: prefix,
+                id_role: roles,
+                id_shif: shift,
+                site: site,
             },
             context: this,
             cache: false,
-            success: function(dataResult){
+            success: function (dataResult) {
                 // alert(dataResult);
                 var dataResult = JSON.parse(dataResult);
                 // $('#modal_staff_id').text(dataResult.id_staff);

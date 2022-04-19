@@ -30,16 +30,16 @@ $(document).ready(function(){
             data: {
                 id_staff: id_staff,
                 id_rfid: id_rfid,
-                name_first: name,
-                name_last: last,
-                prefix: prefix,
-                id_role: roles,
-                id_shif: shift,
-                site: site,
+                name_first:name,
+                name_last:last,
+                prefix:prefix,
+                id_role:roles,
+                id_shif:shift,
+                site:site,
             },
             context: this,
             cache: false,
-            success: function (dataResult) {
+            success: function(dataResult){
                 // alert(dataResult);
                 var dataResult = JSON.parse(dataResult);
                 // $('#modal_staff_id').text(dataResult.id_staff);
@@ -86,8 +86,8 @@ $(document).ready(function(){
         var id_staff = $(this).parent().parent().find('.id_staff').html();
         var id_rfid = $(this).parent().parent().find('.rfid').html();
         var prefix = $(this).parent().parent().find('.prefix').html();
-        var name_first = $(this).parent().parent().find('.name_first').html();
-        var name_last = $(this).parent().parent().find('.name_last').html();
+        //var name_first = $(this).parent().parent().find('.name_first').html();
+        //var name_last = $(this).parent().parent().find('.name_last').html();
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
 
@@ -124,10 +124,10 @@ $(document).ready(function(){
         //alert(prefix + prefix_val + role + role_val+ shif);
 
         $('#input_staff_id').val(id_staff);
-        $('#input_rfid').val(name_first);
+        $('#input_rfid').val(id_rfid);
         $('#prefix_name').val(prefix_val);
-        $('#input_name').val(name_first);
-        $('#input_last').val(name_last);
+        //$('#input_name').val(name_first);
+        //$('#input_last').val(name_last);
         $('#role').val(role_val);
         $('#shift').val(shif);
 

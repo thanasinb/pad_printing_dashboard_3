@@ -64,12 +64,12 @@ $(document).ready(function(){
                 $('#shift').prop('disabled', true);
                 $('#input_site').val(site);
                 $('#input_site').prop('disabled', true);
-                // $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
-                // $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
-                // $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
-                // $('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
-                // $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
-                // $('.id_staff:contains(' + id_staff + ')').next('.shift').text(shift);
+                $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
+                $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
+                $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
+                $('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
+                $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
+                $('.id_staff:contains(' + id_staff + ')').next('.shift').text(shift);
                 $('#button_save_rfid').hide();
                 $('#button_rfid').show();
             }

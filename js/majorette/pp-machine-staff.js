@@ -123,7 +123,13 @@ $(document).ready(function(){
         }
         //alert(prefix + prefix_val + role + role_val+ shif);
 
-
+        $('#input_staff_id').val(id_staff);
+        $('#input_rfid').val(id_rfid);
+        $('#prefix_name').val(prefix_val);
+        //$('#input_name').val(name_first);
+        //$('#input_last').val(name_last);
+        $('#role').val(role_val);
+        $('#shift').val(shif);
 
         $('#staff_modal').modal('show');
         // $('#modal_span_staff_id').text(id_staff);
@@ -141,20 +147,13 @@ $(document).ready(function(){
         // // $('#input_staff_id').text(dataResult.id_staff);
         // //$('#input_rfid').val(dataResult.id_rfid);
         // //$('#modal_prefix').text(dataResult.prefix);
-        // $('#input_name').val('name_first');
-        // $('#input_last').val(dataResult.name_last);
+         $('#input_name').val('name_first');
+         $('#input_last').val('name_last');
         // $('#input_site').val(dataResult.site);
         // $('#modal_role').text(dataResult.role);
         //$('#modal_shif').text(dataResult.id_shif);
         //  }
         // });
-        $('#input_staff_id').val(id_staff);
-        $('#input_rfid').val(id_rfid);
-        $('#prefix_name').val(prefix_val);
-        $('#input_name').val(name_first);
-        $('#input_last').val(name_last);
-        $('#role').val(role_val);
-        $('#shift').val(shif);
     });
 
     $('.staff_delete').click(function (){

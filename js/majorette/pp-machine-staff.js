@@ -23,6 +23,7 @@ $(document).ready(function(){
         var roles= $('#role').val();
         var shift= $('#shift').val();
         var site= $('#input_site').val();
+
         // alert(id_staff+id_rfid);
         $.ajax({
             url: "ajax/pp-staff-change-rfid.php",
@@ -67,7 +68,16 @@ $(document).ready(function(){
                 $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
-                $('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
+                if (prefix==='1'){
+                    prefix = 'นาย';
+                    $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
+                }else if(prefix==='2'){
+                    prefix = 'นาง';
+                    $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
+                }else if(prefix==='3'){
+                    prefix = 'นางสาว';
+                    $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
+                }
                 $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
                 $('.id_staff:contains(' + id_staff + ')').next('.shift').text(shift);
                 $('#button_save_rfid').hide();

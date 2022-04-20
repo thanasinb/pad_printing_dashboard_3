@@ -79,7 +79,6 @@ $(document).ready(function(){
 
     $('body').on('click', '.staff_edit', function(event){
         // $('.staff_edit').click(function (){
-        // alert('edit');
         // alert($(this).parent().find('.id_staff').text());
         // alert($(this).parent().parent().find('.id_staff').html());
 

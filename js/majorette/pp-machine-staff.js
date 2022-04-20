@@ -68,7 +68,7 @@ $(document).ready(function(){
                 $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
-                $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
+                $('.id_staff:contains(' + id_staff + ')').parent().remove().text(roles);
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.shif').text(shift);
                 $('#button_save_rfid').hide();
                 $('#button_rfid').show();

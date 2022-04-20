@@ -78,7 +78,8 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.staff_edit', function(event){
-        // $('.staff_edit').click(function (){
+        //$('.staff_edit').click(function (){
+            $('#staff_modal').modal('show');
         // alert('edit');
         // alert($(this).parent().find('.id_staff').text());
         // alert($(this).parent().parent().find('.id_staff').html());
@@ -86,7 +87,7 @@ $(document).ready(function(){
         var id_staff = $(this).parent().parent().find('.id_staff').html();
         var id_rfid = $(this).parent().parent().find('.rfid').html();
         var prefix = $(this).parent().parent().find('.prefix').html();
-        //var name_first = $(this).parent().parent().find('.name_first').html();
+        var fulname = $(this).parent().parent().find('.fulname').html();
         //var name_last = $(this).parent().parent().find('.name_last').html();
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
@@ -123,37 +124,43 @@ $(document).ready(function(){
         }
         //alert(prefix + prefix_val + role + role_val+ shif);
 
+        //Name Split
+        let text = fulname;
+        const myArray = text.split(" ");
+        let firstN = myArray[0];
+        let lastN = myArray[1];
+
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
         $('#prefix_name').val(prefix_val);
-        //$('#input_name').val(name_first);
-        //$('#input_last').val(name_last);
+        $('#input_name').val(firstN);
+        $('#input_last').val(lastN);
         $('#role').val(role_val);
         $('#shift').val(shif);
 
-        $('#staff_modal').modal('show');
+
         // $('#modal_span_staff_id').text(id_staff);
-        $.ajax({
-         url: "ajax/pp-staff-load.php",
-        type: "GET",
-        data: {
-         id_staff: id_staff
-         },
-        context: this,
-        cache: false,
-        success: function(dataResult){
-        // alert(dataResult);
-         var dataResult = JSON.parse(dataResult);
-        // $('#input_staff_id').text(dataResult.id_staff);
-        //$('#input_rfid').val(dataResult.id_rfid);
-        //$('#modal_prefix').text(dataResult.prefix);
-         $('#input_name').val(dataResult.name_first);
-        $('#input_last').val(dataResult.name_last);
-        $('#input_site').val(dataResult.site);
-        // $('#modal_role').text(dataResult.role);
-        //$('#modal_shif').text(dataResult.id_shif);
-         }
-        });
+        // $.ajax({
+        //  url: "ajax/pp-staff-load.php",
+        // type: "GET",
+        // data: {
+        //  id_staff: id_staff
+        //  },
+        // context: this,
+        // cache: false,
+        // success: function(dataResult){
+        // // alert(dataResult);
+        //  var dataResult = JSON.parse(dataResult);
+        // // $('#input_staff_id').text(dataResult.id_staff);
+        // //$('#input_rfid').val(dataResult.id_rfid);
+        // //$('#modal_prefix').text(dataResult.prefix);
+        //  $('#input_name').val(dataResult.name_first);
+        // $('#input_last').val(dataResult.name_last);
+        // $('#input_site').val(dataResult.site);
+        // // $('#modal_role').text(dataResult.role);
+        // //$('#modal_shif').text(dataResult.id_shif);
+        //  }
+        //  });
     });
 
     $('.staff_delete').click(function (){

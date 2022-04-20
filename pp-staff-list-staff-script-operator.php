@@ -19,7 +19,8 @@ while($data_staff = $result_staff->fetch_assoc()) {
         echo "นาง";
     elseif ($prefix==3)
         echo "นางสาว";
-    echo "<td class='fulname'>". $data_staff['name_first'] ." ". $data_staff['name_last']."</td>";
+
+    echo "<td class='fullname'>". $data_staff['name_first'] ." ". $data_staff['name_last']."</td>";
 
     echo "<td class='role'>";
     $id_role = intval($data_staff['id_role']);

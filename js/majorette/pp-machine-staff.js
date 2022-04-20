@@ -14,6 +14,9 @@ $(document).ready(function(){
     });
 
     $('#button_save_rfid').click(function () {
+
+        var specialchar = /[!฿@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
         // alert($('#input_rfid').val() + $('#modal_staff_id').text());
         var id_staff = $('#input_staff_id').val();
         var id_rfid = $('#input_rfid').val();
@@ -23,60 +26,71 @@ $(document).ready(function(){
         var roles= $('#role').val();
         var shift= $('#shift').val();
         var site= $('#input_site').val();
-        // alert(id_staff+id_rfid);
-        $.ajax({
-            url: "ajax/pp-staff-change-rfid.php",
-            type: "GET",
-            data: {
-                id_staff: id_staff,
-                id_rfid: id_rfid,
-                name_first:name,
-                name_last:last,
-                prefix:prefix,
-                id_role:roles,
-                id_shif:shift,
-                site:site,
-            },
-            context: this,
-            cache: false,
-            success: function(dataResult){
-                // alert(dataResult);
-                var dataResult = JSON.parse(dataResult);
-                // $('#modal_staff_id').text(dataResult.id_staff);
-                // $('#input_rfid').val(dataResult.id_rfid);
-                // alert($(this).html());
-                // document.getElementById("button_save_rfid").textContent = "hello";
-                // $(this).parent().find('#button_save_rfid').hide();
-                // $(this).parent().find('#button_rfid').show();
-                $('#input_staff_id').text(id_staff);
-                $('#input_staff_id').prop('disabled', true);
-                $('#input_rfid').val(id_rfid);
-                $('#input_rfid').prop('disabled', true);
-                $('#prefix_name').val(prefix);
-                $('#prefix_name').prop('disabled', true);
-                $('#input_name').text(name);
-                $('#input_name').prop('disabled', true);
-                $('#input_last').text(last);
-                $('#input_last').prop('disabled', true);
-                $('#role').val(roles);
-                $('#role').prop('disabled', true);
-                $('#shift').val(shift);
-                $('#shift').prop('disabled', true);
-                $('#input_site').val(site);
-                $('#input_site').prop('disabled', true);
-                // $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
-                // $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
-                // $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
-                // $('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
-                // $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
-                // $('.id_staff:contains(' + id_staff + ')').next('.shift').text(shift);
-                $('#button_save_rfid').hide();
-                $('#button_rfid').show();
-            }
-        });
 
+        if(specialchar.test(name+last)) {
+            alert("Incorrect Name !!");
+        }
+        else if((name.indexOf(' ') >= 0)||(last.indexOf(' ') >= 0)){
+            alert("Incorrect Name !!");
+        }
+        else {
+            //$('.id_staff:contains(' + id_staff + ')').parent().find('.fn').text(name_last);
+            // alert(id_staff+id_rfid);
+            $.ajax({
+                url: "ajax/pp-staff-change-rfid.php",
+                type: "GET",
+                data: {
+                    id_staff: id_staff,
+                    id_rfid: id_rfid,
+                    name_first: name,
+                    name_last: last,
+                    prefix: prefix,
+                    id_role: roles,
+                    id_shif: shift,
+                    site: site,
+                },
+                context: this,
+                cache: false,
+                success: function (dataResult) {
+                    // alert(dataResult);
+                    var dataResult = JSON.parse(dataResult);
+                    // $('#modal_staff_id').text(dataResult.id_staff);
+                    // $('#input_rfid').val(dataResult.id_rfid);
+                    // alert($(this).html());
+                    // document.getElementById("button_save_rfid").textContent = "hello";
+                    // $(this).parent().find('#button_save_rfid').hide();
+                    // $(this).parent().find('#button_rfid').show();
+                    $('#input_staff_id').text(id_staff);
+                    $('#input_staff_id').prop('disabled', true);
+                    $('#input_rfid').val(id_rfid);
+                    $('#input_rfid').prop('disabled', true);
+                    $('#prefix_name').val(prefix);
+                    $('#prefix_name').prop('disabled', true);
+                    $('#input_name').text(name);
+                    $('#input_name').prop('disabled', true);
+                    $('#input_last').text(last);
+                    $('#input_last').prop('disabled', true);
+                    $('#role').val(roles);
+                    $('#role').prop('disabled', true);
+                    $('#shift').val(shift);
+                    $('#shift').prop('disabled', true);
+                    $('#input_site').val(site);
+                    $('#input_site').prop('disabled', true);
+                    //alert($('.id_staff:contains(' + id_staff + ')').parent().find('.fn').html());
+                    //$('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
+                    // $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
+                    // $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
+                    //$('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
+                    //$('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
+                    //$('.id_staff:contains(' + id_staff + ')').next('.shift').text(shift);
+                    $('.id_staff:contains(' + id_staff + ')').parent().find('.fullname').text(name+" "+last);
+                    $('#button_save_rfid').hide();
+                    $('#button_rfid').show();
+                }
+            });
+        }
     });
-
+//
     $('body').on('click', '.staff_edit', function(event){
         //$('.staff_edit').click(function (){
             $('#staff_modal').modal('show');
@@ -87,8 +101,8 @@ $(document).ready(function(){
         var id_staff = $(this).parent().parent().find('.id_staff').html();
         var id_rfid = $(this).parent().parent().find('.rfid').html();
         var prefix = $(this).parent().parent().find('.prefix').html();
-        var fulname = $(this).parent().parent().find('.fulname').html();
-        //var name_last = $(this).parent().parent().find('.name_last').html();
+        var fullname = $(this).parent().parent().find('.fullname').html();
+        //var lname = $(this).parent().parent().find('.ln').html();
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
 
@@ -125,16 +139,16 @@ $(document).ready(function(){
         //alert(prefix + prefix_val + role + role_val+ shif);
 
         //Name Split
-        let text = fulname;
-        const myArray = text.split(" ");
-        let firstN = myArray[0];
-        let lastN = myArray[1];
+        let textName = fullname;
+        const nameArray = textName.split(" ");
+        var firstName = nameArray[0];
+        var lastName = nameArray[1];
 
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
         $('#prefix_name').val(prefix_val);
-        $('#input_name').val(firstN);
-        $('#input_last').val(lastN);
+        $('#input_name').val(firstName);
+        $('#input_last').val(lastName);
         $('#role').val(role_val);
         $('#shift').val(shif);
 

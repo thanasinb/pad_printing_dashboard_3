@@ -74,7 +74,7 @@ $(document).ready(function(){
                 }else if(prefix==='2'){
                     prefix = 'นาง';
                     $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
-                }else if(prefix==='3'){
+                }else if(prefix==='3') {
                     prefix = 'นางสาว';
                     $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
                 }

@@ -10,6 +10,9 @@ require '../update/establish.php';
 
 <?php require "pp-staff-list-staff-script-operator.php"; ?>
 
+$n_first = $data_staff['name_first'];
+$n_last = $data_staff['name_last'];
+
 echo json_encode($db_staff, JSON_UNESCAPED_UNICODE);
 
 require '../update/terminate.php';

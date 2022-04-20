@@ -144,11 +144,13 @@ $(document).ready(function(){
         success: function(dataResult){
         // alert(dataResult);
          var dataResult = JSON.parse(dataResult);
+         var first_n = n_first;
+         var last_n = n_last;
         // $('#input_staff_id').text(dataResult.id_staff);
         //$('#input_rfid').val(dataResult.id_rfid);
         //$('#modal_prefix').text(dataResult.prefix);
-         $('#input_name').val(dataResult.name_first);
-        $('#input_last').val(dataResult.name_last);
+         $('#input_name').val('first_n');
+        $('#input_last').val(last_n);
         $('#input_site').val(dataResult.site);
         // $('#modal_role').text(dataResult.role);
         //$('#modal_shif').text(dataResult.id_shif);

@@ -61,11 +61,11 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_first">First name</label>
-                                                <input class="form-control" id="name_first" name="name_first" type="text" required="required">
+                                                <input class="form-control" id="name_first" name="name_first" type="text" pattern="^[ก-๏a-zA-Z]+$" required="required">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_last">Last name</label>
-                                                <input class="form-control" id="name_last" name="name_last" type="text" required="required">
+                                                <input class="form-control" id="name_last" name="name_last" type="text" pattern="^[ก-๏a-zA-Z]+$" required="required">
                                             </div>
                                         </div>
                                         <div class="row gx-3 mb-3">
@@ -105,6 +105,7 @@
                                                 ?>
                                             </div>
                                         </div>
+
                                         <!-- Save changes button-->
                                         <button id="submit_button" class="btn btn-blue" type="submit" disabled>Add</button>
 <!--                                        <a href="pp-staff.php" style="text-decoration: none"><button class="btn btn-red" type="button">Cancel</button></a>-->

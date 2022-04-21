@@ -15,7 +15,7 @@ $(document).ready(function(){
 
     $('#button_save_rfid').click(function () {
 
-//        var specialchar = /[!฿@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+        var specialchar = /[!฿@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
         // alert($('#input_rfid').val() + $('#modal_staff_id').text());
         var id_staff = $('#input_staff_id').val();
@@ -27,13 +27,13 @@ $(document).ready(function(){
         var shift= $('#shift').val();
         var site= $('#input_site').val();
 
-        // if(specialchar.test(name+last)) {
-        //     alert("Incorrect Name !!");
-        // }
-        // else if((name.indexOf(' ') >= 0)||(last.indexOf(' ') >= 0)){
-        //     alert("Incorrect Name !!");
-        // }
-        // else {
+        if(specialchar.test(name+last)) {
+            alert("Name must not contain special characters");
+        }
+        else if((name.indexOf(' ') >= 0)||(last.indexOf(' ') >= 0)||(name=="")||(last=="")){
+            alert("Name must not contain space");
+        }
+        else {
             //$('.id_staff:contains(' + id_staff + ')').parent().find('.fn').text(name_last);
             // alert(id_staff+id_rfid);
             $.ajax({
@@ -88,7 +88,7 @@ $(document).ready(function(){
                     $('#button_rfid').show();
                 }
             });
- //       }
+        }
     });
 
     $('body').on('click', '.staff_edit', function(event){

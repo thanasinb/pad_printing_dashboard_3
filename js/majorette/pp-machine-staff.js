@@ -72,6 +72,7 @@ $(document).ready(function(){
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.shif').text(shift);
                 $('#button_save_rfid').hide();
                 $('#button_rfid').show();
+               // alert($('.id_staff:contains(' + id_staff + ')').parent().remove().text(roles));
             }
         });
 

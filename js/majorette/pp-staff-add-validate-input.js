@@ -17,3 +17,16 @@ function isValid() {
         $('#submit_button').attr('disabled', true);
     }
 }
+function checkOnlyDigits(e) {
+    e = e ? e : window.event;
+    var charCode = e.which ? e.which : e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        // document.getElementById('errorMsg').style.display = 'block';
+        // document.getElementById('errorMsg').style.color = 'red';
+        // document.getElementById('errorMsg').innerHTML = 'กรอกตัวเลขเท่านั้น!!!';
+        return false;
+    } else {
+        // document.getElementById('errorMsg').style.display = 'none';
+        return true;
+    }
+}

@@ -27,7 +27,7 @@ $(document).ready(function(){
         var shift= $('#shift').val();
         var site= $('#input_site').val();
 
-        //specialcarcheck
+        //specialcharcheck
         if(specialchar.test(name+last)) {
             alert("Name must not contain special characters");
         }

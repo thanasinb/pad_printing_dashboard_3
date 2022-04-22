@@ -61,11 +61,11 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_first">First name</label>
-                                                <input class="form-control" id="name_first" name="name_first" type="text" pattern="^[ก-๏a-zA-Z]+" required="required">
+                                                <input class="form-control" id="name_first" name="name_first" type="text" pattern="^[ก-๏a-zA-Z]+$" required="required">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_last">Last name</label>
-                                                <input class="form-control" id="name_last" name="name_last" type="text" pattern="^[ก-๏a-zA-Z]+" required="required">
+                                                <input class="form-control" id="name_last" name="name_last" type="text" pattern="^[ก-๏a-zA-Z]+$" required="required">
                                             </div>
                                         </div>
                                         <div class="row gx-3 mb-3">

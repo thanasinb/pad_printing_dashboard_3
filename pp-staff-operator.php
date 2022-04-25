@@ -121,7 +121,7 @@
                                         <option value="2">Technician</option>
                                         <option value="3">Production Support</option>
                                         <option value="4">Instructor</option>
-                                        <option value="5">Senior Instructor</option>
+                                          <option value="5">Senior Instructor</option>
                                         <option value="6">Foreman</option>
                                         <option value="7">Leader</option>
                                         <option value="8">Senior Technician</option>

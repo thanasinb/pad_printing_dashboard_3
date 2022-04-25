@@ -1,3 +1,4 @@
+var role_tempBefore;
 $(document).ready(function(){
     $('#button_save_rfid').hide();
     $('#staff_modal').on('hide.bs.modal',function(){
@@ -23,6 +24,7 @@ $(document).ready(function(){
         var roles= $('#role').val();
         var shift= $('#shift').val();
         var site= $('#input_site').val();
+
         // alert(id_staff+id_rfid);
         $.ajax({
             url: "ajax/pp-staff-change-rfid.php",
@@ -42,6 +44,8 @@ $(document).ready(function(){
             success: function(dataResult){
                 // alert(dataResult);
                 var dataResult = JSON.parse(dataResult);
+
+                //$('.id_staff:contains(' + id_staff + ')').parent().remove();
                 // $('#modal_staff_id').text(dataResult.id_staff);
                 // $('#input_rfid').val(dataResult.id_rfid);
                 // alert($(this).html());
@@ -64,11 +68,18 @@ $(document).ready(function(){
                 $('#shift').prop('disabled', true);
                 $('#input_site').val(site);
                 $('#input_site').prop('disabled', true);
+
+
+
+                if(roles != role_tempBefore){
+                    $('.id_staff:contains(' + id_staff + ')').parent().remove();
+                }
+                //$('.id_staff:contains(' + id_staff + ')').next('.staff').text(id_staff);
                 $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
-                $('.id_staff:contains(' + id_staff + ')').parent().remove().text(roles);
+                $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.shif').text(shift);
                 $('#button_save_rfid').hide();
                 $('#button_rfid').show();
@@ -120,10 +131,27 @@ $(document).ready(function(){
         }else if(role==='Engineering'){
             role_val=10;
         }
+        role_tempBefore = role_val;
         //alert(prefix + prefix_val + role + role_val+ shif);
 
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
+        $("#input_staff_id").keyup(function(){
+            var idRfid = $(this).val().trim();
+
+            if(idRfid != ''){
+                $.ajax({
+                    url: 'pp-check-duplicate-id.php',
+                    type: 'GET',
+                    data: {idRfid: idRfid},
+                    success: function(response){
+                        $('#rfid_response').html(response);
+                    }
+                });
+            }else{
+                $("#rfid_response").html("");
+            }
+        });
         $('#prefix_name').val(prefix_val);
         //$('#input_name').val(name_first);
         //$('#input_last').val(name_last);
@@ -174,7 +202,7 @@ $(document).ready(function(){
 
     $('#button_rfid').click(function (){
         $('#input_staff_id').prop('disabled', false);
-        // $('#input_staff_id').focus();
+
         $('#input_rfid').prop('disabled', false);
         // $('#input_rfid').focus();
         $('#prefix_name').prop('disabled', false);
@@ -190,6 +218,7 @@ $(document).ready(function(){
         $('#input_site').prop('disabled', false);
         $('#button_rfid').hide();
         $('#button_save_rfid').show();
+
     });
 
 });

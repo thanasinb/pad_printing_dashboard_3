@@ -1,3 +1,4 @@
+var temp_rfid;
 $(document).ready(function(){
     $('#button_save_rfid').hide();
     $('#staff_modal').on('hide.bs.modal',function(){
@@ -13,6 +14,7 @@ $(document).ready(function(){
         $('#button_rfid').show();
     });
 
+
     $('#button_save_rfid').click(function () {
         // alert($('#input_rfid').val() + $('#modal_staff_id').text());
         var id_staff = $('#input_staff_id').val();
@@ -24,7 +26,13 @@ $(document).ready(function(){
         var shift= $('#shift').val();
         var site= $('#input_site').val();
 
-        // alert(id_staff+id_rfid);
+        var valid_rfid = /^[0-9]+$/;
+        if ((!id_rfid.match(valid_rfid))||(id_rfid.length < 10)||(id_rfid.length > 10))
+        {
+            alert("กรุณากรอกตัวเลข 10 หลักที่ช่อง RFID");
+            return false;
+        }
+
         $.ajax({
             url: "ajax/pp-staff-change-rfid.php",
             type: "GET",
@@ -88,10 +96,12 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.staff_edit', function(event){
+
         // $('.staff_edit').click(function (){
         // alert('edit');
         // alert($(this).parent().find('.id_staff').text());
         // alert($(this).parent().parent().find('.id_staff').html());
+        $("#rfid_response").text('');
 
         var id_staff = $(this).parent().parent().find('.id_staff').html();
         var id_rfid = $(this).parent().parent().find('.rfid').html();
@@ -101,6 +111,8 @@ $(document).ready(function(){
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
 
+        temp_rfid = id_rfid;
+        //alert(temp_rfid);
         var prefix_val;
         if (prefix==='นาย'){
             prefix_val=1;
@@ -132,6 +144,28 @@ $(document).ready(function(){
             role_val=10;
         }
         //alert(prefix + prefix_val + role + role_val+ shif);
+
+        //check-rfid
+        $('#input_rfid').val(id_rfid);
+        $("#input_rfid").keyup(function(){
+            var idRfid = $(this).val().trim();
+
+            if(idRfid != ''){
+                $.ajax({
+                    url: 'pp-staff-add-check-rfid.php',
+                    type: 'GET',
+                    data: {
+                        temp_rfid: temp_rfid,
+                        idRfid: idRfid
+                    },
+                    success: function(response){
+                        $('#rfid_response').html(response);
+                    }
+                });
+            }else{
+                $("#rfid_response").html("");
+            }
+        });
 
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
@@ -204,3 +238,17 @@ $(document).ready(function(){
     });
 
 });
+
+function validRfid(e) {
+    var charCode = e.which ? e.which : e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        // document.getElementById('rfid_response').style.display = 'block';
+        // document.getElementById('rfid_response').style.color = 'red';
+        // document.getElementById('rfid_response').innerHTML = 'กรุณากรอกเฉพาะตัวเลข';
+        return false;
+    } else {
+        // document.getElementById('rfid_response').style.display = 'none';
+        return true;
+    }
+
+}

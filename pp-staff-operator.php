@@ -73,12 +73,12 @@
                     <table id="modal_table" class="table table-striped">
                         <tr>
                             <td>Staff ID</td>
-                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" disabled></td>
+                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" maxlength="6" disabled></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>RFID</td>
-                            <td id="modal_rfid"><input type="text" id="input_rfid" name="input_rfid" disabled></td>
+                            <td id="modal_rfid"><input type="text" id="input_rfid" name="input_rfid" autocomplete="off" maxlength="10" disabled> <div id="rfid_response"></div> </td>
                             <td>
 <!--                                <button id="button_rfid" class="btn btn-primary btn-sm" type="button">Change</button>-->
 <!--                                <button id="button_save_rfid" class="btn btn-primary btn-sm" type="button">Save</button>-->

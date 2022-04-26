@@ -1,4 +1,4 @@
-
+let check_id;
 $(document).ready(function() {
     $('input').on('keyup', isValid);
 
@@ -18,7 +18,10 @@ $(document).ready(function() {
             $("#rfid_response").html("");
         }
     });
+
 });
+
+
 
 
 function isValid() {
@@ -33,10 +36,11 @@ function isValid() {
     });
     if(!emptyField) {
         $('#submit_button').prop('disabled', false);
-        if(check_id == false){
+        if(check_id === false){ //check duplicate
             $('#submit_button').prop('disabled', true);
         }
     }
+
     else{
         $('#submit_button').prop('disabled', true);
     }

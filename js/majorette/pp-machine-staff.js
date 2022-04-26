@@ -92,7 +92,7 @@ $(document).ready(function(){
         // $('.staff_edit').click(function (){
         // alert($(this).parent().find('.id_staff').text());
         // alert($(this).parent().parent().find('.id_staff').html());
-
+        $("#staff_id_response").text("");
         var id_staff = $(this).parent().parent().find('.id_staff').html();
         var id_rfid = $(this).parent().parent().find('.rfid').html();
         var prefix = $(this).parent().parent().find('.prefix').html();
@@ -137,19 +137,22 @@ $(document).ready(function(){
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
         $("#input_staff_id").keyup(function(){
-            var idRfid = $(this).val().trim();
+            var idStaff = $(this).val().trim();
 
-            if(idRfid != ''){
+            if(idStaff != ''){
                 $.ajax({
                     url: 'pp-check-duplicate-id.php',
                     type: 'GET',
-                    data: {idRfid: idRfid},
+                    data: {
+                        idStaff: idStaff,
+
+                    },
                     success: function(response){
-                        $('#rfid_response').html(response);
+                        $('#staff_id_response').html(response);
                     }
                 });
             }else{
-                $("#rfid_response").html("");
+                $("#staff_id_response").html("");
             }
         });
         $('#prefix_name').val(prefix_val);

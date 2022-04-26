@@ -73,7 +73,7 @@
                     <table id="modal_table" class="table table-striped">
                         <tr>
                             <td>Staff ID</td>
-                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" maxlength="6" disabled></td>
+                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" maxlength="6" disabled><div id="staff_id_response"></div></td>
                             <td>
                             </td>
                         </tr>

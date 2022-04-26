@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <td>RFID</td>
-                            <td id="modal_rfid"><input type="text" id="input_rfid" name="input_rfid" disabled></td>
+                            <td id="modal_rfid"><input type="text" id="input_rfid" name="input_rfid" disabled> <div id="staff_id_response"></div></td>
                             <td>
                                 <!--                                <button id="button_rfid" class="btn btn-primary btn-sm" type="button">Change</button>-->
                                 <!--                                <button id="button_save_rfid" class="btn btn-primary btn-sm" type="button">Save</button>-->

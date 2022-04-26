@@ -1,6 +1,29 @@
+let check_id;
 $(document).ready(function() {
     $('input').on('keyup', isValid);
+
+    $("#id_rfid").keyup(function(){
+        var idRfid = $(this).val().trim();
+
+        if(idRfid != ''){
+            $.ajax({
+                url: 'pp-check-duplicate-id.php',
+                type: 'GET',
+                data: {idStaff: idStaff},
+                success: function(response){
+                    $('#staff_id_response').html(response);
+                }
+            });
+        }else{
+            $("#staff_id_response").html("");
+        }
+    });
+
 });
+
+
+
+
 function isValid() {
     // alert('hello');
     let requiredInputs = $('input[required]');
@@ -12,21 +35,26 @@ function isValid() {
         }
     });
     if(!emptyField) {
-        $('#submit_button').attr('disabled', false);
-    }else{
-        $('#submit_button').attr('disabled', true);
+        $('#submit_button').prop('disabled', false);
+        if(check_id === false){ //check duplicate
+            $('#submit_button').prop('disabled', true);
+        }
+    }
+
+    else{
+        $('#submit_button').prop('disabled', true);
     }
 }
-function checkOnlyDigits(e) {
-    e = e ? e : window.event;
+function validRfid(e) {
     var charCode = e.which ? e.which : e.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        // document.getElementById('errorMsg').style.display = 'block';
-        // document.getElementById('errorMsg').style.color = 'red';
-        // document.getElementById('errorMsg').innerHTML = 'กรอกตัวเลขเท่านั้น!!!';
+        // document.getElementById('rfid_response').style.display = 'block';
+        // document.getElementById('rfid_response').style.color = 'red';
+        // document.getElementById('rfid_response').innerHTML = 'กรุณากรอกเฉพาะตัวเลข';
         return false;
     } else {
-        // document.getElementById('errorMsg').style.display = 'none';
+        // document.getElementById('rfid_response').style.display = 'none';
         return true;
     }
+
 }

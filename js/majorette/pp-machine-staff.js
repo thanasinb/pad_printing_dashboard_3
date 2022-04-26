@@ -1,4 +1,5 @@
 var role_tempBefore;
+var temp_rfid;
 $(document).ready(function(){
     $('#button_save_rfid').hide();
     $('#staff_modal').on('hide.bs.modal',function(){
@@ -101,6 +102,8 @@ $(document).ready(function(){
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
 
+        temp_rfid = id_staff;
+
         var prefix_val;
         if (prefix==='นาย'){
             prefix_val=1;
@@ -139,12 +142,13 @@ $(document).ready(function(){
         $("#input_staff_id").keyup(function(){
             var idStaff = $(this).val().trim();
 
-            if(idStaff != ''){
+            if(idStaff.length == 6){
                 $.ajax({
                     url: 'pp-check-duplicate-id.php',
                     type: 'GET',
                     data: {
-                        idStaff: idStaff,
+                        temp_rfid: temp_rfid,
+                        idStaff: idStaff
 
                     },
                     success: function(response){

@@ -40,7 +40,7 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_staff">Staff ID</label>
-                                                <input class="form-control" id="id_staff" name="id_staff" onkeypress="return checkOnlyDigits(event)" oninvalid="this.setCustomValidity('กรอกตัวเลขให้ครบ 6 หลัก')" onchange="this.setCustomValidity('')" pattern = "[0-9]{6}" type="text" maxlength="6" required="required">
+                                                <input class="form-control" id="id_staff" name="id_staff" onkeypress="return validRfid(event)" oninvalid="this.setCustomValidity('กรอกตัวเลขให้ครบ 6 หลัก')" onchange="this.setCustomValidity('')" pattern = "[0-9]{6}" type="text" maxlength="6" required="required">
                                             <div id="rfid_response"></div>
                                             </div>
                                             <div class="col-md-6">

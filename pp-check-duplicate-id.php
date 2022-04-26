@@ -28,7 +28,7 @@ if(!empty($_GET['idStaff'])){
             }
         }
     }
-    if(strlen($_GET['idStaff']) < 6){  //check rfid 10 number
+    if(strlen($_GET['idStaff']) < 6){  //check staff 6 number
         echo "<script>$('#submit_button').prop('disabled',true);</script>";
         echo "<script>$('#button_save_rfid').prop('disabled',true);</script>";
         $response = "<span style='color: red;'>Staff ID ต้องมี 6 หลัก</span>";

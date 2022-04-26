@@ -2,10 +2,10 @@ let check_id;
 $(document).ready(function() {
     $('input').on('keyup', isValid);
 
-    $("#id_rfid").keyup(function(){
+    $("#id_rfid").focusout(function(){
         var idRfid = $(this).val().trim();
 
-        if(idRfid != ''){
+        if(idRfid.length == 6){
             $.ajax({
                 url: 'pp-check-duplicate-id.php',
                 type: 'GET',

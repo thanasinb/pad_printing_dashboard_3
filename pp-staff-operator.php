@@ -30,6 +30,7 @@
         <script type="text/javascript" src="js/datetimepicker4/tempusdominus-bootstrap-4.min.js"></script>
         <link rel="stylesheet" href="css/datetimepicker4/tempusdominus-bootstrap-4.min.css" />
         <script type="text/javascript" src="js/majorette/pp-machine-staff.js"></script>
+        <script src="js/majorette/pp-staff-add-validate-input.js"></script>
 <!--        <script type="text/javascript" src="js/majorette/pp-machine-currentTaskModal.js"></script>-->
 <!--        <script type="text/javascript" src="js/majorette/pp-machine-refresh.js"></script>-->
     </head>
@@ -73,7 +74,7 @@
                     <table id="modal_table" class="table table-striped">
                         <tr>
                             <td>Staff ID</td>
-                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" keypress="return validRfid(event)" oninvalid="this.setCustomValidity('กรอกตัวเลข 6 หลัก')" pattern = "[0-9]{6}" autocomplete="off" maxlength="6" disabled><div id="staff_id_response"></div></td>
+                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" onkeypress="return validRfid(event)" autocomplete="off" maxlength="6" disabled><div id="staff_id_response"></div></td>
                             <td>
                             </td>
                         </tr>

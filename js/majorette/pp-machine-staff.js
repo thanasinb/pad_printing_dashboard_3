@@ -139,7 +139,7 @@ $(document).ready(function(){
 
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
-        $("#input_staff_id").keyup(function(){
+        $("#input_staff_id").focusout(function(){
             var idStaff = $(this).val().trim();
 
             if(idStaff.length == 6){

@@ -2,6 +2,7 @@ let check_id;
 $(document).ready(function() {
     $('input').on('keyup', isValid);
 
+
     $("#id_rfid").focusout(function(){
         var idRfid = $(this).val().trim();
 
@@ -25,7 +26,7 @@ $(document).ready(function() {
 
 
 function isValid() {
-    // alert('hello');
+    //alert('hello');
     let requiredInputs = $('input[required]');
     let emptyField = false;
     $.each(requiredInputs, function() {

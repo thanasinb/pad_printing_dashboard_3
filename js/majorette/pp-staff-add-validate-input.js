@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 
     $("#id_rfid").focusout(function(){
-        var idRfid = $(this).val().trim();
+        var idStaff = $(this).val().trim();
 
         if(idRfid.length == 6){
             $.ajax({

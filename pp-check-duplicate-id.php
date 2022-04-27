@@ -8,10 +8,10 @@ if(!empty($_GET['idStaff'])){
     $idStaff = mysqli_real_escape_string($conn,$_GET['idStaff']);
     $query = "select count(1) as cntRfid from staff where id_staff='".$idStaff."'";
     $result = mysqli_query($conn,$query);
-    $response = "<span style='color: green;'>Staff ID นี้สามารถใช้งานได้</span>";
     $check_id = false; // return check_id ไปเช็คค่าซ้ำ
     echo "<script>check_id = true;</script>";
     echo "<script>$('#button_save_rfid').prop('disabled',false);</script>";
+
 
     if(mysqli_num_rows($result)){
         $row = mysqli_fetch_array($result);
@@ -25,14 +25,25 @@ if(!empty($_GET['idStaff'])){
                 $response = "<span style='color: green;'>Staff ID นี้สามารถใช้งานได้</span>";
                 echo "<script>$('#button_save_rfid').prop('disabled',false);</script>";
                 echo "<script>check_id = true;</script>";
+
             }
         }
-    }
-    if(strlen($_GET['idStaff']) < 6){  //check staff 6 number
-        echo "<script>$('#submit_button').prop('disabled',true);</script>";
-        echo "<script>$('#button_save_rfid').prop('disabled',true);</script>";
-        $response = "<span style='color: red;'>Staff ID ต้องมี 6 หลัก</span>";
-        echo "<script>check_id = true;</script>";
+        else{
+            if(strlen($_GET['idStaff']) < 6) {  //check staff 6 number
+
+                echo "<script>$('#submit_button').prop('disabled',true);</script>";
+                echo "<script>$('#button_save_rfid').prop('disabled',true);</script>";
+                $response = "<span style='color: red;'>Staff ID ต้องมี 6 หลัก</span>";
+                echo "<script>check_id = true;</script>";
+
+            }
+            else{
+                echo "<script>$('#submit_button').prop('disabled',false);</script>";
+                echo "<script>$('#button_save_rfid').prop('disabled',false);</script>";
+                $response = "<span style='color: green;'>Staff ID นี้สามารถใช้งานได้</span>";
+
+            }
+        }
 
 
     }

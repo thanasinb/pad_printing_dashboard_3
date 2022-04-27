@@ -140,7 +140,7 @@ $(document).ready(function(){
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
         $("#input_staff_id").focusout(function(){
-            var idStaff = $(this).val().trim();
+            var idStaff = $('#input_staff_id').val().trim();
 
             if(idStaff.length == 6){
                 $.ajax({
@@ -156,7 +156,8 @@ $(document).ready(function(){
                     }
                 });
             }else{
-                $("#staff_id_response").html("");
+                $("#staff_id_response").text("กรอกตัวเลขให้ครบ 6 ตัว");
+                $('#button_save_rfid').prop('disabled',true);
             }
         });
         $('#prefix_name').val(prefix_val);

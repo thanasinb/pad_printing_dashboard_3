@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#id_rfid").keyup(function(){
         var idRfid = $(this).val().trim();
 
-        if(idRfid != ''){
+        if(idRfid.length > 9){
             $.ajax({
                 url: 'pp-staff-add-check-rfid.php',
                 type: 'GET',
@@ -15,14 +15,10 @@ $(document).ready(function() {
                 }
             });
         }else{
-            $("#rfid_response").html("");
+            $("#rfid_response").text('กรอกตัวเลขให้ครบ 10 ตัว');
         }
     });
-
 });
-
-
-
 
 function isValid() {
     // alert('hello');
@@ -40,11 +36,11 @@ function isValid() {
             $('#submit_button').prop('disabled', true);
         }
     }
-
     else{
         $('#submit_button').prop('disabled', true);
     }
 }
+
 function validRfid(e) {
     var charCode = e.which ? e.which : e.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -56,6 +52,5 @@ function validRfid(e) {
         // document.getElementById('rfid_response').style.display = 'none';
         return true;
     }
-
 }
 

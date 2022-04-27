@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_rfid">RFID</label>
-                                                <input class="form-control" id="id_rfid" name="id_rfid" type="text" onkeypress="return validRfid(event)" oninvalid="this.setCustomValidity('กรอกตัวเลข 10 หลัก')" pattern = "[0-9]{10}" autocomplete="off" maxlength="10" required >
+                                                <input class="form-control" id="id_rfid" name="id_rfid" type="text" onkeypress="return validRfid(event)" pattern = "[0-9]{10}" autocomplete="off" maxlength="10" required >
                                                 <div id="rfid_response"></div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
                                             </div>
                                         </div>
                                         <!-- Save changes button-->
-                                        <button id="submit_button" class="btn btn-blue" type="submit" >Add</button>
+                                        <button id="submit_button" class="btn btn-blue" type="submit" disabled>Add</button>
 <!--                                        <a href="pp-staff.php" style="text-decoration: none"><button class="btn btn-red" type="button">Cancel</button></a>-->
                                     </form>
                                 </div>

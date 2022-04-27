@@ -150,7 +150,7 @@ $(document).ready(function(){
         $("#input_rfid").keyup(function(){
             var idRfid = $(this).val().trim();
 
-            if(idRfid != ''){
+            if(idRfid.length == 10){
                 $.ajax({
                     url: 'pp-staff-add-check-rfid.php',
                     type: 'GET',
@@ -163,7 +163,9 @@ $(document).ready(function(){
                     }
                 });
             }else{
-                $("#rfid_response").html("");
+                $("#rfid_response").text('กรอกตัวเลขให้ครบ 10 ตัว');
+                $('#button_save_rfid').prop('disabled',true);
+
             }
         });
 

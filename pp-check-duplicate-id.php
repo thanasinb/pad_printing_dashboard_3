@@ -29,7 +29,8 @@ if(!empty($_GET['idStaff'])){
             }
         }
         else{
-            if(strlen($_GET['idStaff']) < 6) {  //check staff 6 number
+            if(strlen($_GET['idStaff']) < 6) {
+                //check staff 6 number
 
                 echo "<script>$('#submit_button').prop('disabled',true);</script>";
                 echo "<script>$('#button_save_rfid').prop('disabled',true);</script>";

@@ -53,7 +53,7 @@ $(document).ready(function(){
                 // document.getElementById("button_save_rfid").textContent = "hello";
                 // $(this).parent().find('#button_save_rfid').hide();
                 // $(this).parent().find('#button_rfid').show();
-                $('#input_staff_id').text(id_staff);
+                $('#input_staff_id').val(id_staff);
                 $('#input_staff_id').prop('disabled', true);
                 $('#input_rfid').val(id_rfid);
                 $('#input_rfid').prop('disabled', true);
@@ -75,7 +75,7 @@ $(document).ready(function(){
                 if(roles != role_tempBefore){
                     $('.id_staff:contains(' + id_staff + ')').parent().remove();
                 }
-                //$('.id_staff:contains(' + id_staff + ')').next('.staff').text(id_staff);
+                $('.id_staff:contains(' + id_staff + ')').parent().find('.id_staff').text(id_staff);
                 $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);

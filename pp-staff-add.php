@@ -40,18 +40,19 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_staff">Staff ID</label>
-                                                <input class="form-control" id="id_staff" name="id_staff" onkeypress="return validRfid(event)" oninvalid="this.setCustomValidity('กรอกตัวเลขให้ครบ 6 หลัก')" onchange="this.setCustomValidity('')" pattern = "[0-9]{6}" type="text" maxlength="6" required="required">
-                                                <div id="staff_id_response"></div>
+                                                <input class="form-control" id="id_staff" name="id_staff" type="text" maxlength="6" required>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_rfid">RFID</label>
-                                                <input class="form-control" id="id_rfid" name="id_rfid" type="text" maxlength="10" required="required">
+                                                <input class="form-control" id="id_rfid" name="id_rfid" type="text" onkeypress="return validRfid(event)" pattern = "[0-9]{10}" autocomplete="off" maxlength="10" required >
+                                                <div id="rfid_response"></div>
                                             </div>
                                         </div>
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="prefix">Prefix</label>
-                                                <select class="form-control" id="prefix" name="prefix" required="required">
+                                                <select class="form-control" id="prefix" name="prefix" required>
                                                     <option value="0"></option>
                                                     <option value="1">นาย</option>
                                                     <option value="2">นาง</option>
@@ -62,17 +63,17 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_first">First name</label>
-                                                <input class="form-control" id="name_first" name="name_first" type="text" required="required">
+                                                <input class="form-control" id="name_first" name="name_first" type="text" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="name_last">Last name</label>
-                                                <input class="form-control" id="name_last" name="name_last" type="text" required="required">
+                                                <input class="form-control" id="name_last" name="name_last" type="text" required>
                                             </div>
                                         </div>
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_role">Role</label>
-                                                <select class="form-control" id="id_role" name="id_role" required="required">
+                                                <select class="form-control" id="id_role" name="id_role" required>
                                                     <option value="0"></option>
                                                     <option value="1">Operator</option>
                                                     <option value="2">Technician</option>
@@ -80,8 +81,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_shif">Team</label>
-<!--                                                <input class="form-control" id="id_shif" name="id_shif" type="text" required="required">-->
-                                                <select class="form-control" id="id_shif" name="id_shif" required="required">
+<!--                                                <input class="form-control" id="id_shif" name="id_shif" type="text" required>-->
+                                                <select class="form-control" id="id_shif" name="id_shif" required>
                                                     <option value="0"></option>
                                                     <option value="A">A</option>
                                                     <option value="B">B</option>

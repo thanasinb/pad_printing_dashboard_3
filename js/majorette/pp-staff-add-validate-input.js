@@ -20,8 +20,27 @@ $(document).ready(function() {
     });
 });
 
+    $("#id_staff").keyup(function(){
+        var idStaff = $(this).val().trim();
+
+        if(idStaff.length > 5){
+            $.ajax({
+                url: 'pp-check-duplicate-id.php',
+                type: 'GET',
+                data: {idStaff: idStaff},
+                success: function(response){
+                    $('#staff_id_response').html(response);
+                }
+            });
+        }else{
+            $("#staff_id_response").html("");
+        }
+    });
+
+});
+
 function isValid() {
-    // alert('hello');
+    //alert('hello');
     let requiredInputs = $('input[required]');
     let emptyField = false;
     $.each(requiredInputs, function() {

@@ -41,6 +41,7 @@
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_staff">Staff ID</label>
                                                 <input class="form-control" id="id_staff" name="id_staff" type="text" maxlength="6" required>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="id_rfid">RFID</label>

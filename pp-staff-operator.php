@@ -30,6 +30,7 @@
         <script type="text/javascript" src="js/datetimepicker4/tempusdominus-bootstrap-4.min.js"></script>
         <link rel="stylesheet" href="css/datetimepicker4/tempusdominus-bootstrap-4.min.css" />
         <script type="text/javascript" src="js/majorette/pp-machine-staff.js"></script>
+        <script src="js/majorette/pp-staff-add-validate-input.js"></script>
 <!--        <script type="text/javascript" src="js/majorette/pp-machine-currentTaskModal.js"></script>-->
 <!--        <script type="text/javascript" src="js/majorette/pp-machine-refresh.js"></script>-->
     </head>
@@ -73,8 +74,9 @@
                     <table id="modal_table" class="table table-striped">
                         <tr>
                             <td>Staff ID</td>
-                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" disabled></td>
-                            <td></td>
+                            <td id="modal_staff_id"><input type="text" id="input_staff_id" name="input_staff_id" onkeypress="return validRfid(event)" autocomplete="off" maxlength="6" disabled><div id="staff_id_response"></div></td>
+                            <td>
+                            </td>
                         </tr>
                         <tr>
                             <td>RFID</td>
@@ -120,7 +122,7 @@
                                         <option value="2">Technician</option>
                                         <option value="3">Production Support</option>
                                         <option value="4">Instructor</option>
-                                        <option value="5">Senior Instructor</option>
+                                          <option value="5">Senior Instructor</option>
                                         <option value="6">Foreman</option>
                                         <option value="7">Leader</option>
                                         <option value="8">Senior Technician</option>

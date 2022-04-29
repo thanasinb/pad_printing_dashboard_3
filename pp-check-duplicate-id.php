@@ -21,7 +21,7 @@ if(!empty($_GET['idStaff'])){
             echo "<script>$('#submit_button').prop('disabled',true);</script>";
             echo "<script>$('#button_save_rfid').prop('disabled',true);</script>";
             echo "<script>check_id = false;</script>";
-            if($_GET['temp_rfid'] == $_GET['idStaff']){
+            if($_GET['temp_id_staff'] == $_GET['idStaff']){
                 $response = "<span style='color: green;'>Staff ID นี้สามารถใช้งานได้</span>";
                 echo "<script>$('#button_save_rfid').prop('disabled',false);</script>";
                 echo "<script>check_id = true;</script>";
@@ -44,6 +44,8 @@ if(!empty($_GET['idStaff'])){
                 $response = "<span style='color: green;'>Staff ID นี้สามารถใช้งานได้</span>";
 
             }
+
+
         }
 
 

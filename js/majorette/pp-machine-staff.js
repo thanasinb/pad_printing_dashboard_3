@@ -1,5 +1,6 @@
 var role_tempBefore;
 var temp_rfid;
+var temp_id_staff;
 $(document).ready(function(){
     $('#button_save_rfid').hide();
     $('#staff_modal').on('hide.bs.modal',function(){
@@ -26,6 +27,8 @@ $(document).ready(function(){
         var shift= $('#shift').val();
         var site= $('#input_site').val();
 
+        ///alert(temp_id_staff);
+        //alert(id_staff);
         // alert(id_staff+id_rfid);
         $.ajax({
             url: "ajax/pp-staff-change-rfid.php",
@@ -39,6 +42,7 @@ $(document).ready(function(){
                 id_role:roles,
                 id_shif:shift,
                 site:site,
+                temp_id_staff:temp_id_staff,
             },
             context: this,
             cache: false,
@@ -75,16 +79,19 @@ $(document).ready(function(){
                 if(roles != role_tempBefore){
                     $('.id_staff:contains(' + id_staff + ')').parent().remove();
                 }
-                $('.id_staff:contains(' + id_staff + ')').parent().find('.id_staff').text(id_staff);
+                $('.id_staff:contains(' + temp_id_staff + ')').parent().find('.id_staff').text(id_staff);
                 $('.id_staff:contains(' + id_staff + ')').next('.rfid').text(id_rfid);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_first').text(name);
                 $('.id_staff:contains(' + id_staff + ')').next('.name_last').text(last);
-                $('.id_staff:contains(' + id_staff + ')').parent().find('.prefix').text(prefix);
+                $('.id_staff:contains(' + id_staff + ')').next('.prefix').text(prefix);
                 $('.id_staff:contains(' + id_staff + ')').next('.role').text(roles);
                 $('.id_staff:contains(' + id_staff + ')').parent().find('.shif').text(shift);
+                temp_id_staff = id_staff;
+                $("#staff_id_response").text("");
                 $('#button_save_rfid').hide();
                 $('#button_rfid').show();
             }
+
         });
 
     });
@@ -101,8 +108,6 @@ $(document).ready(function(){
         //var name_last = $(this).parent().parent().find('.name_last').html();
         var role = $(this).parent().parent().find('.role').html();
         var shif = $(this).parent().parent().find('.shif').html();
-
-        temp_rfid = id_staff;
 
         var prefix_val;
         if (prefix==='นาย'){
@@ -135,7 +140,9 @@ $(document).ready(function(){
             role_val=10;
         }
         role_tempBefore = role_val;
+        temp_id_staff = id_staff;
         //alert(prefix + prefix_val + role + role_val+ shif);
+        //alert(temp_id_staff +" "+id_staff);
 
         $('#input_staff_id').val(id_staff);
         $('#input_rfid').val(id_rfid);
@@ -147,7 +154,7 @@ $(document).ready(function(){
                     url: 'pp-check-duplicate-id.php',
                     type: 'GET',
                     data: {
-                        temp_rfid: temp_rfid,
+                        temp_id_staff: temp_id_staff,
                         idStaff: idStaff
 
                     },

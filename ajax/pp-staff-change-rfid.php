@@ -8,7 +8,7 @@ name_last='".$_GET['name_last']."',
 prefix='".$_GET['prefix']."',
 id_role='".$_GET['id_role']."',
 id_shif='".$_GET['id_shif']."',
-site='".$_GET['site']."'WHERE id_staff='" . $_GET['id_staff'] . "'";
+site='".$_GET['site']."'WHERE id_staff='" . $_GET['temp_id_staff'] . "'";
 
 $result_staff = $conn->query($sql);
 

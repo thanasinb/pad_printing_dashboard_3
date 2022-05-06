@@ -18,6 +18,9 @@ $data_activity_sum = $query_activity_sum->fetch_assoc();
 if ($data_activity_sum['qty_process']==null){
     $data_activity_sum['qty_process']='0';
 }
+if ($data_activity_sum['qty_repeat']==null){
+    $data_activity_sum['qty_repeat']='0';
+}
 
 // SELECT THE ACTIVE BACKFLUSH ACTIVITY
 $sql = "SELECT id_staff, status_work, total_work, no_pulse1, run_time_actual FROM activity WHERE status_work<3 AND id_task=" . $id_task . " AND id_machine='" . $_GET["id_mc"] . "'";

@@ -8,7 +8,7 @@ $sql = $sql . "CURRENT_TIMESTAMP(), ";
 $sql = $sql . "1)";
 $result = $conn->query($sql);
 
-$sql = "UPDATE activity SET num_repeat = num_repeat + 1 WHERE id_activity='" . $data_activity["id_activity"] . "' AND id_machine ='".$_GET["id_mc"] . "'";
+$sql = "UPDATE activity SET num_repeat = num_repeat + 1 WHERE id_activity='" . $data_activity["id_activity"] . "' AND id_machine ='".$_GET["id_mc"] . "'AND status_work = 1";
 $data_repeat = $conn->query($sql);
 
 require 'terminate.php';

@@ -72,4 +72,3 @@ if(empty($data_activity)) {
 }
 require "contact.php";
 require 'terminate.php';
-
